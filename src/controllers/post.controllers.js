@@ -1,11 +1,9 @@
 const { PostModel } = require('../models/posts')
 
 const createPost = async (req, res) => {
-    const {title, content, image} = req.body
+    const {title, content, image} = req.body;
 
     await PostModel.create({title, content, image})
-
-    res.send('post created successfuly')
 
     res.redirect("/");
 

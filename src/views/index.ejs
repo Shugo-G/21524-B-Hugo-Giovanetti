@@ -11,9 +11,7 @@
     <ul>
         <% listaDePosts.forEach((post) => { %>
          
-            <h1><%= post.title  %></h1>
-            <span><%= post.content  %></span>
-            <span><%= post.image  %></span>
+           <%- include('./post', {post});  %> 
         
         <% }); %>
     </ul>
