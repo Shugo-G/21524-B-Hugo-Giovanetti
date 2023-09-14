@@ -34,7 +34,15 @@ app.get('/', async (req, res) => {
 app.get("/crear", async (req, res) => {
     res.render("crear");
   });
-  
+ 
+app.get("/editar/:id", async (req, res) => {
+
+    const postId = req.params.id;
+
+    const post = await PostModel.findByPk(postId);
+
+    res.render("editar", { post });
+}); 
 
 app.use('/posts', require('./src/routes/post.routes'))
 

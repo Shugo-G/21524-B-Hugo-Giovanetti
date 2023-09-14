@@ -9,10 +9,22 @@ const createPost = async (req, res) => {
 
 }
 
+const updatePost = async (req, res) => {
+    const postId = req.params.id;
+    const {title, content, image} = req.body;
+
+    const post = await PostModel.findByPk(postId);
+
+    await post.update({title, content, image})
+
+    res.redirect("/");
+
+}
+
 const listPosts = async (req, res) => {
     const allPosts = await PostModel.findAll()
 
     res.json(allPosts)
 }
 
-module.exports = {createPost, listPosts}
+module.exports = {createPost, listPosts, updatePost}
