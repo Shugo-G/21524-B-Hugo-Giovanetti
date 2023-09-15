@@ -1,5 +1,11 @@
-<h1><%= post.title  %></h1>
-<img src="<%= post.image %>" alt=""><br>
-<span><%= post.content  %></span><br>
-<span><b><%= post.createdAt %></b></span><br>
-<a href="/editar/<%= post.id %>">Editar Post</a>
+  <div class="card mb-3 border-light text-bg-secondary-emphasis" style="min-width: 18rem;">
+    <img src="<%= post.image %>" class="card-img-top" alt="...">
+    <div class="card-body">
+        <h4 class="card-header text-center mb-3 border-light"><%= post.title  %></h4>
+      <p class="card-text"><%= post.content  %></p>
+      <a href="/editar/<%= post.id %>" class="btn btn-primary">Editar Post</a>
+    </div>
+    <div class="card-footer text-body-secondary text-center mb-3">
+        <%= post.createdAt %>
+    </div>
+  </div>

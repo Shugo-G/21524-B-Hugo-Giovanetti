@@ -3,14 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Crear</title>
+    <link rel="stylesheet" href="./bootstrap.css">
 </head>
 <body>
-    <form action="/posts" method="post">
-        <input type="text" name="title" placeholder="@titutlo"><br>
-        <textarea name="content" id="" cols="30" rows="10"></textarea><br>
-        <input type="text" name="image" id=""><br>
-        <button>Crear Post</button>
-    </form>
+    <%- include('./partials/navbar'); %>
+    <div class="container my-4">
+        <form action="/posts" method="post">
+            <fieldset>
+            <legend>Nuevo Posteo</legend>
+            <div class="form-group">
+                <input type="text" class="form-control" name="title"  placeholder="@titulo">
+            </div>
+            <div class="form-group">
+                <textarea class="form-control" name="content" id="" cols="30" rows="10" placeholder="@contenido"></textarea>
+                <input type="text" class="form-control" name="image"  placeholder="@url-de-la-Imagen">
+            </div>            
+            <button type="submit" class="btn btn-primary">Crear Post</button>
+            </fieldset>
+        </form>
+    </div>
+<script src="./bootstrap.js"></script>
 </body>
 </html>

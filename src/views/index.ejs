@@ -4,16 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= title %></title>
-    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="./bootstrap.css">
 </head>
 <body>
     <%- include('./partials/navbar'); %>
-    <ul>
-        <% listaDePosts.forEach((post) => { %>
-         
-           <%- include('./post', {post});  %> 
-        
-        <% }); %>
-    </ul>
+    <div class="container">
+        <div class="row justify-content-center my-4">
+            <% listaDePosts.forEach((post) => { %>
+                <div class="col-xl-4 col-md-6 col-sm-12">
+                    <%- include('./post', {post});  %> 
+                </div>
+            <% }); %>
+        </div>
+    </div>
+<script src="./bootstrap.js"></script>
 </body>
 </html>
