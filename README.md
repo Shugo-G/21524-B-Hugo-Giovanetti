@@ -5,6 +5,7 @@ Para correr localmente es necesario:
 
 instalar lo siguiente
 npm install express cors morgan ejs
+npm i sequelize mysql2
 
 Con XAMPP iniciar un servider mysql y en el admin crear una base de datos con el nombre proyectofinal
 
