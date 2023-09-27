@@ -3,9 +3,12 @@
     <div class="card-body">
         <h4 class="card-header text-center mb-3 border-light"><%= post.title  %></h4>
       <p class="card-text"><%= post.content  %></p>
-      <a href="/editar/<%= post.id %>" class="btn btn-primary">Editar Post</a>
     </div>
     <div class="card-footer text-body-secondary text-center mb-3">
         <%= post.createdAt %>
+    </div>
+    <div class="d-flex justify-content-around">
+      <a href="/editar/<%= post.id %>" class="btn btn-primary">Editar Post</a>
+      <a href="/eliminar/<%= post.id %>" class="btn btn-danger">Eliminar</a>
     </div>
   </div>

@@ -2,7 +2,7 @@ const express = require('express')
 const cors = require('cors')
 const morgan = require('morgan')
 const path = require('node:path')
-
+require('dotenv').config();
 
 const { sequelize } = require('./database')
 const { PostModel } = require('./src/models/posts')
@@ -44,9 +44,22 @@ app.get("/editar/:id", async (req, res) => {
     res.render("editar", { post });
 }); 
 
+app.get("/eliminar/:id", async (req, res) => {
+
+    const postId = req.params.id;
+    const {title, content, image} = req.body;
+
+    const post = await PostModel.findByPk(postId);
+    
+    await post.destroy({title, content, image})
+
+    res.redirect("/");
+}); 
+
+
 app.use('/posts', require('./src/routes/post.routes'))
 
-app.listen(3000, () => {
+app.listen(process.env.PORT, () => {
     sequelize.sync({force: false})
         .then(() => console.log("db is connected"))
         .catch(err => console.log(err))
